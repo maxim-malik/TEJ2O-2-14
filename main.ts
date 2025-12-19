@@ -40,8 +40,8 @@ input.onButtonPressed(Button.A, function () {
     }
 
     sprite.delete()
-    basic.showIcon(IconNames.Happy)
 })
+basic.showIcon(IconNames.Happy)
 
 // on button B pressed
 input.onButtonPressed(Button.B, function () {
@@ -69,5 +69,5 @@ input.onButtonPressed(Button.B, function () {
         basic.pause(500)
     }
     sprite.delete()
-    basic.showIcon(IconNames.Happy)
 })
+basic.showIcon(IconNames.Happy)
