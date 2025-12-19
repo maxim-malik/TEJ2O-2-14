@@ -1,45 +1,72 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2020 MHTS All rights reserved
  *
  * Created by: Maxim Malik
- * Created on: Dec 2025
- * This program lights microbit lights diagonally
+ * Created on: Oct 2025
+ * This program shows while loops in action
 */
 
 // variables
-let loopCounter: number = 0
 let sprite: game.LedSprite = null
+let loopCounterX = 0
+let loopCounterY = 0
 
-// on start
+basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
-// on button A pressed an LED lights up diagonally from the top left corner to the bottom right corner
+// on button A pressed
 input.onButtonPressed(Button.A, function () {
-    // setting values
     basic.clearScreen()
-    loopCounter = 0
     sprite = game.createSprite(0, 0)
 
-    while (loopCounter <= 5) {
-        sprite.set(LedSpriteProperty.X, loopCounter)
-        sprite.set(LedSpriteProperty.Y, loopCounter)
+    while (loopCounterY <= 4) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY + 1
         basic.pause(500)
-        loopCounter++
     }
+    while (loopCounterX <= 4) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX + 1
+        basic.pause(500)
+    }
+    while (loopCounterY >= 0) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY - 1
+        basic.pause(500)
+    }
+    while (loopCounterX >= 0) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX - 1
+        basic.pause(500)
+    }
+
     sprite.delete()
     basic.showIcon(IconNames.Happy)
 })
 
-// on button B pressed an LED lights up diagonally from the bottom right corner to top the left corner
+// on button B pressed
 input.onButtonPressed(Button.B, function () {
     basic.clearScreen()
-    loopCounter = 5
-    sprite = game.createSprite(5, 5)
+    sprite = game.createSprite(0, 0)
 
-    while (loopCounter >= 0) {
-        sprite.set(LedSpriteProperty.X, loopCounter)
-        sprite.set(LedSpriteProperty.Y, loopCounter)
+    while (loopCounterX <= 4) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX + 1
         basic.pause(500)
-        loopCounter--
+    }
+    while (loopCounterY <= 4) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY + 1
+        basic.pause(500)
+    }
+    while (loopCounterX >= 0) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX - 1
+        basic.pause(500)
+    }
+    while (loopCounterY >= 0) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY - 1
+        basic.pause(500)
     }
     sprite.delete()
     basic.showIcon(IconNames.Happy)
